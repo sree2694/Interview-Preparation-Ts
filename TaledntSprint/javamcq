@@ -1,0 +1,213 @@
+
+
+Computer memory - divided into stack(less size but fast),heap(big size)
+
+Primitive types stored in stack, objects stored in heap
+
+So need to have fized size for primitive data types
+
+In heap - Object pool- inside it string pool and other pool for other type objects - for easy retrieval of JVM
+
+Strings are immutable - object values can’t be changed
+String a = “Hello”
+ A = “Hi” → new Hi object
+String reference is updated, next time when used new Hi object is used. Hello object eligible for garbage collection
+Garbage - an object which doesn’t have any reference
+
+
+
+String reverse prog:
+a= “Hello World”
+B = “d”
+B = “dl”
+b=”dlr”....12 objects created, only 2 has references. Remaining 10 objects eligible for garbage collection
+
+So, use StringBuffer for this.
+
+How can we make object eligible for garbage collection:
+Change the reference
+String a = “Hello”
+String b = “Hi”
+
+A = b;
+Hello is garbage collected
+
+2. A = null; - can be garbage collected //Nullifying the reference variable
+
+
+Test1, testthis obejects garbage collected
+
+main(){
+Test test2 = new Test; //3rd this object created
+Test2 = null; //test1, testthis objects garbage collected 
+}
+
+Class Test{
+TestThis testthis;  //2nd this object created
+Public Test(){
+Testthis = new TestThis(this);
+}
+
+Class TestThis{
+Test test1;    // first this object created
+Public TestThis(Test aThis){
+Test1 = aThis;
+}
+
+
+2.
+
+String x = “test”
+String y = “test”  //In string pool checks if any object is available with same value
+
+
+syso(x==y);  //true - checks both belong to same object
+syso(x.equals(y)); //true
+
+
+
+**************
+String x =new String(“test”)    //in this case if a changed to test1, b value will also gets changed //even if we dont want to change, that’s why strings are immutable.
+String y = “test”
+
+Ans:
+False - reference variables are checked 
+True
+
+*********************
+String x =new String(“test”)
+String y =new String(“test”)
+Ans: false, true
+
+
+super() keyword should be used in COnstructor only 1st statement, cannot be used in method body
+Parent constructor executes first, then child class constructor.
+If parent class constructor is parameterized, child class constructor should use super keyword
+
+
+Final keyword: if final methods are overriddden, only child object method called, it will execute child method body only. Wouldn’t show error as final methods cant be overridden
+
+this() method from parameterized constructor will call to default constructor
+
+Interface extends interface - remember
+
+C,D,E
+Abstract class implements interface
+
+
+Parent p = new Test();
+syso(p.a) - 200 parent class value
+
+
+
+
+Class Test{
+
+String name;
+Void display(Test t){
+T.name = “Alan”
+T = null;  //local t object becomes null, doesn’t affect main method t object
+}
+
+
+main(){
+Test t = new Test();
+T.name = “Arthur”;
+t.display(t);
+Syso(t.name); -- prints Arthur
+
+Only try block can handle exceptions.
+In catch or finally block if we throw also it wont go to catch block
+
+One catch block or finally block doesn’t have capacity to redirect to catch block.
+
+
+A[] = {1,2,3,};
+syso(a.length) - -- ans: 3
+
+Try{
+Throw new IOException(); - will go to catch block
+Return 1; --can’t unreachable codeexecute this statement - so 
+}
+Ans: Compilation Error -- Unreachable code
+
+Dynamic Polymorphism - Runtime  Ex: Method Overriding
+Static Polymorphism - Compile time - Ex: Method Overloading
+
+Static Polymorphism:
+
+Return type can be diff
+
+2 methods can have same parameters only when order is diff
+
+public void sum(int... a){   //can be used only in method declaration
+
+int sum = 0;
+for(int x: a){
+sum += x;
+}
+}
+syso(sum);
+
+Autoboxing: Converting primitive data types to wrapper class objects
+
+private class Test{ //can create public or default classes - can't create private class -- error
+public void m1(){
+
+syso("M1");
+}
+}
+
+public Class Test2 extends Test{
+
+}
+
+public Class Test3 {
+
+psvm(){
+
+Test2 t = new Test2();
+t.m1();
+
+
+Note: Ans-M1 if given public class
+
+public static void m1(){
+syso("M1");
+}
+
+--final,static methods not possible to override, can't override static parameters also
+
+
+Test4 m3 = new Test(); //parent reference , child object  //Runtime Polymorphism-- it ill check whether parent class has m1, but JVM(run time decides) will take value from child class.--here compiler don't know where to take value from
+
+m3.add(); --will call parent class method, if same child class method is available it will take child class emthod unless parent class method is static.
+
+
+//static polymorphism compile time only decides where to take value from
+
+
+
+
+--> Winding and Narrowing concepts
+
+
+StringBuffer question:
+ABCD - appended string
+B - as it is string
+
+
+
+String Buffer
+Diff bw Collections and Array - Array size is fixed
+Hash Table vs HashMap vs HashSet - Difference?
+TreeSet(sorted order) HashSet(random) LinkedHashSet(insertion order)
+ArrayList(maintain order based on index, to read more data) LinkedList(easy for insertion,deletion)
+
+
+
+
+
+
+
+

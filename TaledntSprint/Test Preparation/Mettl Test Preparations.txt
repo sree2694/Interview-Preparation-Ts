@@ -1,0 +1,865 @@
+Fundamentals of Programming
+
+Question 1:
+Consider an array L[5…30], where each element L[i], 5<=i<=30 is of 4 bytes and the address of L[5] is 1000. What is the address of L[12]?
+Options 
+1024
+1028 ****
+1032
+1036
+
+Question 2:
+
+What will be the output of the following code snippet?
+byte k = 37, y = 2;
+int l= 37 % 2;
+System.out.println(l);
+
+Options 
+3
+1  ****
+0
+1.4
+
+
+Question 3:
+What will be the output of the following code snippet?
+class q15{
+public static void main(String as[]){
+final char ch ='A';
+switch(65){
+case ch:
+System.out.println("65");
+case 66:
+System.out.println("66");
+}
+}
+}
+
+Compilation error
+65
+66
+65 ****
+66
+RuntimeException
+
+
+Question 4:
+Considering the following code snippet, which of the following implementations of printList is faster?
+Note: Ignore minor optimizations
+public class AClass
+{
+void printList1(LinkedList<Integer> r)
+{
+for(int i=0;i<r.size();i++)
+{
+System.out.println(r.get(i));
+}
+}
+void printList2(LinkedList<Integer> r)
+{
+Iterator<Integer> it=r.iterator();
+while(it.hasNext())
+{
+System.out.println(it.next());
+}
+}
+void printList3(LinkedList<Integer> r)
+{
+for(int i:r)
+{
+System.out.println(i);
+}
+}
+}
+
+
+Options Response Answer
+printList1
+printList2
+printList3  ****
+printList2 and printList 3 are same and
+faster then printlist1
+
+
+Question 5:
+What will be the output of the following code snippet?
+public class FindLargestSmallestNumber {
+public static void main(String[] args) {
+int numbers[] = new int[]{37,47,57,58,31,67,69,98,43,22};
+int smallest = numbers[0];
+int largetst = numbers[0];
+for(int i=1; i< numbers.length; i++)
+{
+if(numbers[i] > largetst)
+largetst = numbers[i];
+else if (numbers[i] < smallest)
+smallest = numbers[i];
+}
+System.out.println("Largest Number is : " + largetst);
+System.out.println("Smallest Number is : " + smallest);
+}
+}
+
+Options 
+Largest number is: 98  ****
+Smallest number is: 22
+Largest number is: 98
+Smallest number is: 23
+Largest number is: 99
+Smallest number is: 23
+None of the given options
+
+
+Question 6:
+What will be the output of the following code snippet?
+class q4{
+public static void main(String as[]){
+boolean bool =true;
+if(bool=false){
+System.out.println("a");
+}else if(bool){
+System.out.println("b");
+}else if(!bool){
+System.out.println("c");
+}else{
+System.out.println("d");
+}
+}
+}
+
+Options
+b,d
+b
+c  ****
+d
+
+
+Question 7:
+Which of the following statements about garbage collection in Java are true?
+A. Garbage collection can be enforced using System.gc().
+B. Garbage collection cannot be forced but we can request the JVM using System.gc().
+C. The time when garbage collection will be done by JVM cannot be predicted.
+D. The time when JVM performs garbage collection is deterministic.
+15 / 49
+Options 
+Both A and C
+Both A and D
+Both B and C  ****
+Both B and D
+
+Question 8:
+Which of the given objects are eligible for Garbage collection after line 26 of the following code snippet?
+class Test {
+TestThis testthis;
+public Test(){
+testthis = new TestThis(this);
+}
+class TestThis {
+Test test1;
+public TestThis(Test aThis) {
+test1 = aThis;
+}
+}
+public static void main (String[] args){
+Test test2 = new Test();
+test2 = null; // line 26
+}
+}
+
+Options 
+test1
+testthis and test1 ****
+testthis, test1 and test2
+None of the given options
+
+Question 9:
+What will be the output of the following code snippet?
+class qq25{
+public static void main(String as[]){
+String str1 ="XYZ";
+System.out.println(str1.equals(new Student()));
+}
+}
+class Student{};
+
+Options 
+Compilation will fail
+RuntimeException
+True
+False  ****
+Null
+
+
+Question 10:
+What will be the output of the following code snippet?
+public class qq17{
+static String s ="Instance";
+public static void method(String s){
+s+="Add";
+}
+public static void main(String as[]){
+qq17 j =new qq17();
+s = "New Instance";
+String s ="Local";
+method(s);
+System.out.println(s);
+System.out.println(j.s);
+}
+}
+
+Options
+Compilation will fail
+LocalAdd Instance
+LocalAdd New Instance  
+Local LocalAdd
+Local New Instance *****
+
+
+Question 11:
+What will be the output of the following code snippet?
+public class qq26{
+final static String str ;
+public static void main(String as[]){
+String str ="ABC";
+System.out.println(qq26.str);
+}
+static{
+String str ="Hi";
+str ="XYZ";
+}
+}
+
+Options 
+XYZ
+ABC
+Hi
+Null
+Compilation will fail  ****
+
+Question 12:
+What will be the output of the following code snippet?
+class MyThread extends Thread{
+public void run(){
+System.out.println(Thread.currentThread().getName());
+System.out.println(Thread.currentThread().isDaemon());
+}
+public static void main(String[] args){
+MyThread t1=new MyThread();
+MyThread t2=new MyThread();
+t1.start();
+t1.setDaemon(true);
+t2.start();
+}
+}
+
+Options
+Thread-0 false Thread-1 false
+Thread-0 true Thread-1 true
+Throws an IllegalThreadStateException *****
+Thread-0 true Thread-1 false
+
+Question 13:
+What will be the output of the following code snippet?
+public class Test extends Thread{
+public void start(){
+System.out.println("Start Method");
+}
+public void run() {
+System.out.println("Run method");
+}
+static public void main(String[] args) {
+Test t1 = new Test();
+Test t2 = new Test();
+t1.run();
+t2.run();
+}
+}
+Options 
+Start and Run methods would both get
+printed twice on the console, but the order
+cannot be predicted
+Start method would get printed twice on
+the console
+Run method would get printed twice on the console *****
+Compile time exception, as one cannot
+override the start method
+
+Question 14:
+Which method of JDBC API would you use to define the Out parameter before calling a stored procedure using CallableStatement?
+Options Response Answer
+setOutParameter
+registerOutParameter
+setReturnValue
+registerReturnValue
+
+Question 15:
+Which of the following statements about Type 4 driver is false?
+20 / 49
+Options Response Answer
+Type 4 driver is “native protocol, pure java”
+driver.
+Type 4 drivers are 100% Java compatible.
+Type 4 drivers uses Socket class to
+connect to the database.
+Type 4 drivers cannot be used with Netscape. *****
+
+
+SQL
+
+Question 1:
+Given are the columns in the EMP table. You have written the following query to retrieve all employees who have not been assigned to any department yet. Which of the following statements about the query is true?
+
+EMP table columns:
+LAST_NAME VARCHAR2 (25)
+SALARY NUMBER (6, 2)
+DEPARTMENT_ID NUMBER (6)
+
+Query:
+1 SELECT LAST_NAME, SALARY, DEPARTMENT_ID FROM EMP WHERE DEPARTMENT_ID = NULL;
+
+Options 
+The SQL statement will display the desired results *****
+The WHERE clause contains an error
+Self join needs to be used
+The WHERE clause should be changed to use an outer join to display the desired results
+
+Question 2:
+Consider a database design with the tables whose schema is given.
+EMP(empno INTEGER,ename STRING,esal REAL)
+WORKS(empno INTEGER,deptid INTEGER)
+DEPT(deptid INTEGER,bugdet REAL)
+
+Which of the following queries is more efficient?
+A. Select empno from works where deptid = '100' OR deptid = '101' ;
+
+B. Select empno from works where deptid IN (100,101);
+
+Options 
+Only A
+Only B  *****
+Both are equally efficient  
+Cannot be determined
+
+
+Question 3:
+
+Check all options that apply.
+
+Which of the following commands will you use to insert values in a table?
+
+Options
+
+INSERT INTO [table_name] VALUES (value1, value2, value3,...)   ******
+
+INSERT INTO [table_name]
+
+INSERT INTO [table_name] (column1, column2, column3,...)
+VALUES (value1, value2, value3,...)
+
+INSERT [table_name] VALUES (value1, value2, value3,...)
+
+
+Question 4:
+The Result Table can be achieved by using which of the following queries?
+Consider the following Tables.
+
+Customers Table
+
+Orders Table
+
+Options 
+SELECT Customers.CustomerName, Orders.OrderID
+FROM Customers OUTER JOIN Orders ON ustomers.CustomerID = Orders.CustomerID ORDER BY Customers.CustomerName;
+
+SELECT Customers.CustomerName, Orders.OrderID
+FROM Customers LEFT JOIN Orders ON ustomers.CustomerID= Orders.CustomerID ORDER BY Customers.CustomerName;
+
+SELECT Customers.CustomerName, Orders.OrderID
+FROM Customers INNER JOIN Orders ON Customers.CustomerID =Orders.CustomerID ORDER BY Customers.CustomerName;  *****
+
+None of the given options
+
+Question 5:
+What will be the output of the following statement?
+CREATE PROCEDURE pr_temp (@val1 INT = NULL, @val2 INT = 13)
+AS
+BEGIN
+SELECT @val1, @val2
+END
+
+EXEC pr_temp 11, 12
+Options 
+NULL, 13
+NULL, 12
+11, 12  ******
+11, 13
+NULL, NULL
+
+
+Core Java
+Question 1:
+Which of the following methods are present in the Thread class?
+A. notify()
+B. run()
+C. terminate()
+D. start()
+E. wait()
+
+Options 
+Both B and D  *****
+A, B and D
+B, C and D
+All of the given options
+
+Question 2:
+What will be the output of the following code snippet?
+import java.io.IOException;
+class Test{
+public static void main(String[] args) {
+Test t = new Test();
+int i = t.check();
+System.out.println(i);
+}
+int check(){
+try{
+throw new IOException();
+return 1;//line 13
+}catch(Exception e){
+System.out.println("catch block");
+}finally{
+System.out.println("finally returning");
+}
+}
+}
+ 
+Options 
+1
+catch block
+finally returning
+1
+
+Compile time exception, as code in line 13 
+is unreachable   ********
+
+IOException will be thrown at runtime
+
+
+Question 3:
+Which of the given statements about the following code snippet is correct?
+interface DemoInterface{
+}
+public class DemoImplementation implements DemoInterface{
+public static void main(String args[])
+{
+System.out.println(new DemoImplementation().toString());
+}
+}
+
+Options
+
+Compilation will fail because toString()
+
+does not exist in DemoImplementation.
+
+RuntimeException
+
+The given code will compile and run successfully.  *****
+
+None of the given options
+
+
+Question 4:
+Which of the following access modifiers provides narrow access scope (assuming that 'private' provides the narrowest scope) ?
+Options 
+Public
+Default
+
+Protected	******
+
+None of the given options
+
+
+Question 5:
+Which of the following options would you use to achieve abstraction in Java?
+30 / 49
+Options Response Answer
+Virtual class
+Interface   *****
+Concrete class
+Static class
+
+Question 6:
+Why are Generics used in Java?
+
+Options 
+
+Assuring type safety  ******
+Generics are mandatory to use in
+collections
+Generics reduce time in retrieving
+collections
+One cannot work on collections without
+Generics
+
+Question 7:
+What will be the output of the following code snippet?
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+class Test{
+public static void main(String[] args) {
+List l = new ArrayList();
+l.add("20");
+l.add("8");
+l.add("5");
+Collections.sort(l);
+for(int i=0;i<l.size();i++)
+System.out.println(l.get(i));
+}
+}
+
+Options
+20 8 5
+5 8 20
+20 5 8	*****
+RuntimeException
+
+Question 8:
+Which of the following options is the correct JUnit test case when exception is thrown?
+32 / 49
+
+Options 
+
+@Test(expected=IndexOutOfBoundsException.class)  *****
+public void testIndexOutOfBoundsException() {
+ArrayList emptyList = new ArrayList();
+Object o = emptyList.get(0);
+}
+
+
+@Test(IndexOutOfBoundsException.class)
+public void testIndexOutOfBoundsException() {
+ArrayList emptyList = new ArrayList();
+Object o = emptyList.get(0);
+}
+
+@TestException(expected=IndexOutOfBoundsException.class)
+public void testIndexOutOfBoundsException() {
+ArrayList emptyList = new ArrayList();
+Object o = emptyList.get(0);
+}
+
+@Exception(expected=IndexOutOfBoundsException.class)
+public void testIndexOutOfBoundsException() {
+ArrayList emptyList = new ArrayList();
+Object o = emptyList.get(0);
+}
+
+
+Question 9:
+How can you run setUp() and tearDown() code at once for all of your tests?
+33 / 49
+
+Options 
+You can add a @BeforeClass annotation  	********
+to a method to be run before all the tests in
+a class, and a @AfterClass annotation to a
+method to be run after all the tests in a
+class
+
+You can add a @BeforeClass annotation
+to a method to be run before individual
+tests class, and a @AfterClass annotation
+to a method to be run after individual tests
+in a class
+
+You can add a @BeforeClass annotation
+to a method to be run before all the tests in
+a class, and a @AfterClass annotation to a
+method to be run after individual tests in a
+class
+
+None of the given options
+
+
+Question 10:
+What diagram would be most suitable to achieve the following :
+> To model flow of control by time sequence.
+> To model flow of control by structural organizations.
+> For forward engineering.
+> For reverse engineering.
+
+Options 
+Interaction Diagrams  ******
+Statechart diagrams
+Use case diagram
+None of these
+
+User Experience
+Question 1:
+What should be the output of the following code?
+var foo = {
+bar: function()
+{
+return this.baz;
+}, baz: 1
+};
+(
+function()
+{
+return typeof arguments[0]();
+}
+)
+(foo.bar);
+
+Options 
+undefined
+object
+number   ********
+function
+
+Question 2:
+There are two HTML elements "ele1" and "ele2", where "ele2" is contained inside "ele1". Two events are attached to the elements as
+follows:
+function ele1click(){
+alert("Element 1 Clicked");
+}
+function ele2click(){
+alert("Element 2 Clicked");
+}
+ele2.addEventListener('click',ele2click,false);
+ele1.addEventListener('click',ele1click,true);
+
+
+
+What will be the output of the code when Element 2 is clicked?
+
+Options 
+
+Element 1 Clicked
+
+Element 2 Clicked
+
+Element 2 Clicked
+Element 1 Clicked
+
+Element 1 Clicked    *******
+Element 2 Clicked
+
+Question 3:
+For a structured document, which of the following options defines a standard set of objects?
+37 / 49
+Options Response Answer
+HTML DOM
+Core DOM  ********
+XML DOM
+None of the given options
+
+Question 4:
+What will be the result of the given below HTML code when styled using a index.css file?
+<!DOCTYPE html>
+<html>
+<head>
+<title>Styling Submit Buttons</title>
+<link rel="stylesheet" type="text/css" href="index.css"/>
+</head>
+<body>
+<form>
+<input type="submit" value="Register" id="submit"/>
+</form>
+</body>
+</html>
+
+
+The CSS file index.css is as given below:
+
+input {
+font-size: 120%;
+color: black;
+background-color: grey;
+border: 1px solid grey;
+border-radius: 5px;
+padding: 5px 10px 5px 10px;
+background-repeat: no-repeat;
+background-position: 8px 9px;
+display: block;
+margin-bottom: 10px;
+}
+input:hover {
+color: red;
+border: 1px solid black;
+background-color: red;
+background: -moz-linear-gradient(top, #a8cfce, #beeae9);
+background: linear-gradient(top, #a8cfce, #beeae9);
+}
+
+
+Options 
+The following will create two buttons with
+name Register. One button will have grey
+background and red text and other will
+have grey background and black text. On
+hovering the mouse over the buttons a
+black underline over the buttons can be
+seen.
+
+The following will create two buttons with
+name Register. One button will have red
+background and black text and other will
+have grey background and black text. On
+hovering the mouse over the buttons a
+black underline over the buttons can be
+seen.
+
+The following will create one button with	*******
+name Register. The button will have grey
+background and black text. On hovering
+the mouse over the button the text color
+changes to red, the background color
+changes to blue and a black underline over
+the button can also be seen.
+
+The following will create one button with
+name Register. The button will have grey
+background and black text. On hovering
+the mouse over the button the text color
+changes to red, background color remains
+the same and a black underline over the
+button can also be seen.
+
+Question 5:
+What is erroneous in the given source code of a HTML page?
+<html>
+<head>
+<script type="text/javascript">
+function chngeColor(color){
+document.getElementbyId('x').style.color=color;
+}
+</script>
+</head>
+<body>
+<p>Mouse over the three colored table cells, and the text will change color:</p>
+<table width="100%">
+<tr>
+<td bgcolor="red" onmouseover="changeColor('red')"> </td>
+<td bgcolor="blue" onmouseover="changeColor('blue')"> </td>
+<td bgcolor="green" onmouseover="changeColor('green')"> </td>
+</tr>
+</table>
+<form>
+<input id="x" type="text" value="Mouse over the colors" size="20">
+</form>
+</body>
+</html>
+
+
+Options 
+function chngeColor(color)
+
+document.getElementbyId('x').style.color=color;
+
+<input id="x" type="text" value="Mouse over the colors" size="20">
+
+Both 1 and 2	*******
+
+Java EE
+Question 1:
+What type of driver is net-protocol driver and uses a middleware to translate a request for database server?
+
+Options 
+Type 1
+Type 2
+Type 3	******
+Type 4
+
+Question 2:
+As per Java servlets concepts, within the web-app element of deployment descriptor, which of the following options represents the correct
+code fragment ?
+
+
+Options 
+<exception>
+<exception-type> mypackage.MyException</exception-type>
+<location> /error.jsp</location> </exception>
+
+
+<error-page>	*********
+<exception-type> mypackage.MyException</exception-type>
+<location> /error.jsp</location> </error-page>  ****
+
+
+<error-page>
+<exception> mypackage.MyException </exception-type>
+<location> /error.jsp </location> </error-page>
+
+<error-page>
+<exception-type>mypackage.MyException</exception-type>
+</error-page>
+
+
+Question 3:
+Which of the following methods would you use to find the maximum number of connections that a specific driver can obtain?
+
+Options
+
+Database.getMaxConnections
+
+Connection.getMaxConnections
+
+DatabaseMetaData.getMaxConnections	******
+
+ResultSetMetaData.getMaxConnections
+
+Question 4:
+A JSP has custom tags and you want to attach a Validator for a Tag Library during the page translation phase. Which of the following
+elements should be used in the Tag Library descriptor for a particular tag?
+
+Options
+
+tag-validator
+
+validator	********
+
+validator-tag
+
+None of the given options
+
+Question 5:
+Which of the following EL expressions are valid?
+Note: There can be more than one correct answer.
+
+Options 
+${pageContext.request.pathInfo} *******
+
+${pageContext.request.remoteUser()}
+
+${pageContext.request.queryString}  ******
+
+${pageContext.request.getRequestURI}
+
+
+Hands on Programming
+Question 1:
+
+Perfect Sums
+
+Write a function that computes the number of perfect sums in an array.
+
+A perfect sum is the sum of two or more elements of an array which is equal to a given number.
+
+Return 999 if no such sum exists.
+
+Example
+Input
+input1: The number of elements in the array
+input2[ ]: Array {2,3,5,6,8,10}
+input3: A number 10
+Output
+Number of perfect sums is 2 (5+3+2 & 8+2).
+Therefore, your function should return 2.
+
+Note: If the input is not an int array, then return 999.
+
+
+
